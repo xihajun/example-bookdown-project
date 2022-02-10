@@ -1,24 +1,34 @@
 on:
-  push:
-     branches:
-       - main
-
-name: renderbook
+	push:
+    paths:
+      - *.Rmd
+name: bookdown
 
 jobs:
   bookdown:
     name: bookdown setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Install OpenSSL
+        run: sudo apt-get update; sudo apt-get install libcurl4-openssl-dev; sudo apt-get install libssl-dev; date > TIME
+  
+      - name: Cache R Packages
+        uses: actions/cache@v1.1.0
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-mycache-R-heatmap-${{ hashFiles('DESCRIPTION') }}
+          
       - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown"))'
       - name: Render Book
         run: Rscript setup.R
-        # run: Rscript -e 'bookdown::render_book("index.Rmd")'
-  
+
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
