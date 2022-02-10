@@ -1,8 +1,9 @@
-# Sharing your book
+# Bookdown Tutorial (Create-this-page)
 
-## Publishing
+## Video Tutorial (in 10 mins)
 
-HTML books can be published online, see: https://bookdown.org/yihui/bookdown/publishing.html
+I followed this YouTube video to create this page for sslab 
+https://www.youtube.com/watch?v=RdSmYvbQkhs
 
 ## 404 pages
 
