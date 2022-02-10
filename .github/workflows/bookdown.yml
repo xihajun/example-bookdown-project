@@ -1,8 +1,5 @@
-on:
-	push:
-    paths:
-      - *.Rmd
 name: bookdown
+on: [push]
 
 jobs:
   bookdown:
