@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: page-deploy
 on:
   workflow_run:
   workflows: ["bookdown"]
