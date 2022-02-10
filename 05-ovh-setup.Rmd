@@ -1,0 +1,92 @@
+# OVH Cloud VPS setup
+
+The setup tutorial could be devided into five parts:
+- OVHcloud Control Panel setup (reinstall OS)
+- WHM & cPanel setup
+- Secure your server
+- Setup your domain
+- Install dependencies & other settings
+## OVHcloud Control Panel setup
+### Reinstall OS
+If you already have a VPS and want to have cPanel on it, you can reinstall the VPS from your OVHcloud Control Panel with the **“CentOS 7 - cPanel”** template (available only with a compatible VPS solution). After that, you will receive an email shortly with the username & password + cPanel login details.
+
+### Setup fireware
+In order to increase the VPS's security, we can go to IP
+![userprofile](https://raw.githubusercontent.com/xihajun/image/main/img/20220210172232.png)
+Set firewall here
+![firewall](https://raw.githubusercontent.com/xihajun/image/main/img/20220210172556.png)
+
+## WHM & cPanel setup
+
+This tutorial is adapted from [ovh cloud guide](https://docs.ovh.com/gb/en/vps/cpanel/).
+
+cPanel has been widely used for domain and web application management. We are using this as well. Unfortunately (or fortunately), it is not possible to setup using command line. There are two steps we need to set manually: whm setting, cpanel account creation.
+
+### WHM manager
+
+#### How to set up - link generation
+Once you received the email with the unique link, please proceed to the link to do the initial setup.
+
+The URL above allows you to log in without credentials (user and password) to your WHM manager.
+
+However, the link sometimes expires soon. Alternatively, you can generate a new link by running `sudo whmlogin` (when you ssh in).
+
+#### WHM agreement & namespace setting
+
+Given the link, you will be able to access
+
+![WHM agreement](https://raw.githubusercontent.com/xihajun/image/main/img/20220210173642.png)
+
+Namespace setting (config your domain)
+
+![Namespace-vps-name.vps.ovh.net](https://raw.githubusercontent.com/xihajun/image/main/img/20220210175101.png)
+#### set root password
+
+Once you login into WHM, you will be able to setup a root password for future access.
+
+![set-password](https://raw.githubusercontent.com/xihajun/image/main/img/20220210174451.png)
+Then you will be able to login with the username (root) & password. In the future, you will be able to access WHM here: 
+<https://vps-name.vps.ovh.net:2087>
+
+#### create a cPanel account 
+![create a new account](https://raw.githubusercontent.com/xihajun/image/main/img/20220210174119.png)
+You will be able to create new accounts here by filling all the details.
+![](https://raw.githubusercontent.com/xihajun/image/main/img/20220210174303.png)
+
+TODO: domain
+Read more here <https://docs.ovh.com/gb/en/vps/cpanel/>.
+
+## Secure VPS
+Change SSH port is highly recommended. We can change the `/etc/ssh/sshd_config` file
+
+```{bash}
+ vi /etc/ssh/sshd_config 
+```
+![port22](https://raw.githubusercontent.com/xihajun/image/main/img/20220210175712.png)
+
+We can change the Port 22 to whatever port you want (eg. 33), then restart the sshd
+```
+sudo systemctl restart sshd
+```
+
+Now you will only be able to ssh using (eg. 33)
+
+```
+ssh username@ip.add.r.ess -p 33
+```
+
+Read more here <https://docs.cpanel.net/knowledge-base/security/tips-to-make-your-server-more-secure/>.
+
+## Setup your domain
+
+TODO
+
+## Install dependencies & other settings
+
+All you need is this git repo: <https://github.com/ss-lab-cancerunit/ovhcloud>
+
+```
+git clone https://github.com/ss-lab-cancerunit/ovhcloud.git
+cd ovhcloud
+bash setup.sh
+```
