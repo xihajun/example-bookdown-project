@@ -2,8 +2,9 @@
 
 ## Video Tutorial (in 10 mins)
 
-I followed this YouTube video to create this page for sslab 
-https://www.youtube.com/watch?v=RdSmYvbQkhs
+I followed this YouTube video to create this page: 
+![ytbvideo](https://www.youtube.com/watch?v=RdSmYvbQkhs)
+
 
 ## 404 pages
 
