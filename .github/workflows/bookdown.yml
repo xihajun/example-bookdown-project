@@ -5,6 +5,7 @@ on:
 
 name: renderbook
 
+      
 jobs:
   bookdown:
     name: ubuntu-latest
@@ -16,16 +17,8 @@ jobs:
       - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown"))'
       - name: Render Book
-<<<<<<< HEAD
         run: Rscript setup.R
         # run: Rscript -e 'bookdown::render_book("index.Rmd")'
-=======
-        run: Rscript -e 'bookdown::render_book("index.Rmd")'
-      - uses: actions/upload-artifact@v1
-        with:
-          name: _book
-          path: _book/
->>>>>>> 62f85bd0aa4de7a505cb09b305d85e5a6c08263f
   
 	    - name: pull-request
         uses: repo-sync/pull-request@v2
@@ -48,7 +41,6 @@ jobs:
 # see https://pkgdown.r-lib.org/reference/deploy_site_github.html
 # and also add secrets for a GH_PAT and EMAIL to the repository
 # gh-action from Cecilapp/GitHub-Pages-deploy
-<<<<<<< HEAD
 #  checkout-and-deploy:
 #   runs-on: ubuntu-latest
 #   needs: bookdown
@@ -69,25 +61,3 @@ jobs:
 #       with:
 #          build_dir: docs/ # "_site/" by default
 #          email: ${{ secrets.EMAIL }}  # must be a verified email
-=======
-  checkout-and-deploy:
-   runs-on: ubuntu-latest
-   needs: bookdown
-   steps:
-     - name: Checkout
-       uses: actions/checkout@master
-     - name: Download artifact
-       uses: actions/download-artifact@v1.0.0
-       with:
-         # Artifact name
-         name: _book # optional
-         # Destination path
-         path: _book # optional
-     - name: Deploy to GitHub Pages
-       uses: Cecilapp/GitHub-Pages-deploy@v3
-       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       with:
-          build_dir: _book/ # "_site/" by default
-          email: ${{ secrets.EMAIL }}  # must be a verified email
->>>>>>> 62f85bd0aa4de7a505cb09b305d85e5a6c08263f
