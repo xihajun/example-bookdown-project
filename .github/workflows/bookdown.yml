@@ -20,7 +20,7 @@ jobs:
         run: Rscript setup.R
         # run: Rscript -e 'bookdown::render_book("index.Rmd")'
   
-	    - name: pull-request
+      - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "main"
@@ -28,15 +28,16 @@ jobs:
           
       - name: commit
         run: |
-        git config --global user.email jh2259@mrc-cu.cam.ac.uk
-        git config --global user.name xihajun
-        git add .
-        git commit -m "fig2c generation #8" -a
+          git config --global user.email jh2259@mrc-cu.cam.ac.uk
+          git config --global user.name xihajun
+          git add .
+          git commit -m "automation bookdown" -a
         
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+	  
 # Need to first create an empty gh-pages branch
 # see https://pkgdown.r-lib.org/reference/deploy_site_github.html
 # and also add secrets for a GH_PAT and EMAIL to the repository
