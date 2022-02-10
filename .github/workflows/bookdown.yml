@@ -1,7 +1,7 @@
 on:
   push:
      branches:
-       - main
+       - master
 
 
 name: renderbook
@@ -20,8 +20,8 @@ jobs:
         run: Rscript -e 'bookdown::render_book("index.Rmd")'
       - uses: actions/upload-artifact@v1
         with:
-          name: docs/ 
-          path: docs/
+          name: _book
+          path: _book/
   
 # Need to first create an empty gh-pages branch
 # see https://pkgdown.r-lib.org/reference/deploy_site_github.html
@@ -45,5 +45,5 @@ jobs:
        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        with:
-          build_dir: docs/ # "_site/" by default
+          build_dir: _book/ # "_site/" by default
           email: ${{ secrets.EMAIL }}  # must be a verified email
