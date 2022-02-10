@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 4 Parts | A Minimal Book Example</title>
+  <title>Section 6 OVH Cloud VPS setup | A Minimal Book Example</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 4 Parts | A Minimal Book Example" />
+  <meta property="og:title" content="Section 6 OVH Cloud VPS setup | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -20,7 +20,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 4 Parts | A Minimal Book Example" />
+  <meta name="twitter:title" content="Section 6 OVH Cloud VPS setup | A Minimal Book Example" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -37,8 +37,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="cross.html"/>
-<link rel="next" href="jounarl-requirements.html"/>
+<link rel="prev" href="jounarl-requirements.html"/>
+<link rel="next" href="bookdown-tutorial-create-this-page.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -195,21 +195,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="parts" class="section level1">
-<h1><span class="header-section-number">Section 4</span> Parts</h1>
-<p>You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.</p>
-<p>Add a numbered part: <code># (PART) Act one {-}</code> (followed by <code># A chapter</code>)</p>
-<p>Add an unnumbered part: <code># (PART\*) Act one {-}</code> (followed by <code># A chapter</code>)</p>
-<p>Add an appendix as a special kind of un-numbered part: <code># (APPENDIX) Other stuff {-}</code> (followed by <code># A chapter</code>). Chapters in an appendix are prepended with letters instead of numbers.</p>
+<div id="ovh-cloud-vps-setup" class="section level1">
+<h1><span class="header-section-number">Section 6</span> OVH Cloud VPS setup</h1>
+<p>The setup tutorial could be devided into five parts:
+- OVHcloud Control Panel setup (reinstall OS)
+- WHM &amp; cPanel setup
+- Secure your server
+- Setup your domain
+- Install dependencies &amp; other settings
+## OVHcloud Control Panel setup
+### Reinstall OS
+If you already have a VPS and want to have cPanel on it, you can reinstall the VPS from your OVHcloud Control Panel with the <strong>“CentOS 7 - cPanel”</strong> template (available only with a compatible VPS solution). After that, you will receive an email shortly with the username &amp; password + cPanel login details.</p>
+<div id="setup-fireware" class="section level3">
+<h3><span class="header-section-number">6.0.1</span> Setup fireware</h3>
+<p>In order to increase the VPS’s security, we can go to IP
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210172232.png" alt="userprofile" />
+Set firewall here
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210172556.png" alt="firewall" /></p>
+</div>
+<div id="whm-cpanel-setup" class="section level2">
+<h2><span class="header-section-number">6.1</span> WHM &amp; cPanel setup</h2>
+<p>This tutorial is adapted from <a href="https://docs.ovh.com/gb/en/vps/cpanel/">ovh cloud guide</a>.</p>
+<p>cPanel has been widely used for domain and web application management. We are using this as well. Unfortunately (or fortunately), it is not possible to setup using command line. There are two steps we need to set manually: whm setting, cpanel account creation.</p>
+<div id="whm-manager" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> WHM manager</h3>
+<div id="how-to-set-up---link-generation" class="section level4">
+<h4><span class="header-section-number">6.1.1.1</span> How to set up - link generation</h4>
+<p>Once you received the email with the unique link, please proceed to the link to do the initial setup.</p>
+<p>The URL above allows you to log in without credentials (user and password) to your WHM manager.</p>
+<p>However, the link sometimes expires soon. Alternatively, you can generate a new link by running <code>sudo whmlogin</code> (when you ssh in).</p>
+</div>
+<div id="whm-agreement-namespace-setting" class="section level4">
+<h4><span class="header-section-number">6.1.1.2</span> WHM agreement &amp; namespace setting</h4>
+<p>Given the link, you will be able to access</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210173642.png" alt="" />
+<p class="caption">WHM agreement</p>
+</div>
+<p>Namespace setting (config your domain)</p>
+<p><img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210175101.png" alt="Namespace-vps-name.vps.ovh.net" />
+#### set root password</p>
+<p>Once you login into WHM, you will be able to setup a root password for future access.</p>
+<p><img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210174451.png" alt="set-password" />
+Then you will be able to login with the username (root) &amp; password. In the future, you will be able to access WHM here:
+<a href="https://vps-name.vps.ovh.net:2087" class="uri">https://vps-name.vps.ovh.net:2087</a></p>
+</div>
+<div id="create-a-cpanel-account" class="section level4">
+<h4><span class="header-section-number">6.1.1.3</span> create a cPanel account</h4>
+<p><img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210174119.png" alt="create a new account" />
+You will be able to create new accounts here by filling all the details.
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210174303.png" /></p>
+<p>TODO: domain
+Read more here <a href="https://docs.ovh.com/gb/en/vps/cpanel/" class="uri">https://docs.ovh.com/gb/en/vps/cpanel/</a>.</p>
+</div>
+</div>
+</div>
+<div id="secure-vps" class="section level2">
+<h2><span class="header-section-number">6.2</span> Secure VPS</h2>
+<p>Change SSH port is highly recommended. We can change the <code>/etc/ssh/sshd_config</code> file</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="ovh-cloud-vps-setup.html#cb5-1"></a> <span class="ex">vi</span> /etc/ssh/sshd_config </span></code></pre></div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210175712.png" alt="" />
+<p class="caption">port 22</p>
+</div>
+<p>We can change the Port 22 to whatever port you want (eg. 33), then restart the sshd</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="ovh-cloud-vps-setup.html#cb6-1"></a></span>
+<span id="cb6-2"><a href="ovh-cloud-vps-setup.html#cb6-2"></a><span class="fu">sudo</span> systemctl restart sshd</span></code></pre></div>
+<p>Now you will only be able to ssh using (eg. 33)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="ovh-cloud-vps-setup.html#cb7-1"></a><span class="fu">ssh</span> username@ip.add.r.ess -p 33</span></code></pre></div>
+<p>Read more here <a href="https://docs.cpanel.net/knowledge-base/security/tips-to-make-your-server-more-secure/" class="uri">https://docs.cpanel.net/knowledge-base/security/tips-to-make-your-server-more-secure/</a>.</p>
+</div>
+<div id="setup-your-domain" class="section level2">
+<h2><span class="header-section-number">6.3</span> Setup your domain</h2>
+<p>TODO</p>
+</div>
+<div id="install-dependencies-other-settings" class="section level2">
+<h2><span class="header-section-number">6.4</span> Install dependencies &amp; other settings</h2>
+<p>All you need is this git repo: <a href="https://github.com/ss-lab-cancerunit/ovhcloud" class="uri">https://github.com/ss-lab-cancerunit/ovhcloud</a></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="ovh-cloud-vps-setup.html#cb8-1"></a><span class="fu">git</span> clone https://github.com/ss-lab-cancerunit/ovhcloud.git</span>
+<span id="cb8-2"><a href="ovh-cloud-vps-setup.html#cb8-2"></a><span class="bu">cd</span> ovhcloud</span>
+<span id="cb8-3"><a href="ovh-cloud-vps-setup.html#cb8-3"></a><span class="fu">bash</span> setup.sh</span></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="cross.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="jounarl-requirements.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="jounarl-requirements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bookdown-tutorial-create-this-page.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -240,7 +315,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-parts.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-ovh-setup.Rmd",
 "text": "Edit"
 },
 "history": {
