@@ -59,19 +59,20 @@ Read more here <https://docs.ovh.com/gb/en/vps/cpanel/>.
 ## Secure VPS
 Change SSH port is highly recommended. We can change the `/etc/ssh/sshd_config` file
 
-```{bash}
+```{bash eval = FALSE}
  vi /etc/ssh/sshd_config 
 ```
-![port22](https://raw.githubusercontent.com/xihajun/image/main/img/20220210175712.png)
+![port 22](https://raw.githubusercontent.com/xihajun/image/main/img/20220210175712.png)
 
 We can change the Port 22 to whatever port you want (eg. 33), then restart the sshd
-```
+```{bash eval = FALSE}
+
 sudo systemctl restart sshd
 ```
 
 Now you will only be able to ssh using (eg. 33)
 
-```
+```{bash eval = FALSE}
 ssh username@ip.add.r.ess -p 33
 ```
 
@@ -85,7 +86,7 @@ TODO
 
 All you need is this git repo: <https://github.com/ss-lab-cancerunit/ovhcloud>
 
-```
+```{bash eval = FALSE}
 git clone https://github.com/ss-lab-cancerunit/ovhcloud.git
 cd ovhcloud
 bash setup.sh
