@@ -18,6 +18,7 @@ whm-cpanel-setup
 whm-manager
 how-to-set-up---link-generation
 whm-agreement-namespace-setting
+set-root-password
 create-a-cpanel-account
 secure-vps
 setup-your-domain
