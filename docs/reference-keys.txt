@@ -26,3 +26,12 @@ install-dependencies-other-settings
 bookdown-tutorial-create-this-page
 video-tutorial-in-10-mins
 github-action
+useful-resources
+datasets
+general
+google-search
+deep-learning
+tensorflow-hub
+resources
+nlp
+bert-as-service
