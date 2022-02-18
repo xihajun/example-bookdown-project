@@ -1,0 +1,24 @@
+# Useful Resources
+
+
+## Datasets
+
+### General
+
+#### Google Search
+
+Dataset search from google would be great. <https://datasetsearch.research.google.com/>
+
+### Deep Learning
+
+#### TensorFlow Hub
+
+TensorFlow Hub is the haven for pre-trained ML model <https://www.tensorflow.org/hub?hl=zh-tw> (eg. word embedding)
+
+## Resources
+
+### NLP
+
+#### BERT-AS-SERVICE
+
+Pre-trained bert embedding: <https://github.com/hanxiao/bert-as-service>
