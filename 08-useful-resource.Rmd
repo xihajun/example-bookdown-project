@@ -30,8 +30,11 @@ Pre-trained bert embedding: <https://github.com/hanxiao/bert-as-service>
 #### PowerPoint
 
 PC: <https://www.youtube.com/watch?v=upF-LVnNN9o>
+
 #### Google Slides
 
 ##### How to add ads-on
+
 <https://isvincent.pixnet.net/blog/post/44107162-%E8%A7%A3%E6%B1%BAgoogle%E5%B8%B3%E6%88%B6%E8%A2%AB%E6%8B%92%E7%B5%B6%E7%99%BB%E5%85%A5%E7%9A%84%E5%95%8F%E9%A1%8C>
 
+Pre-trained bert embedding: <https://github.com/hanxiao/bert-as-service>

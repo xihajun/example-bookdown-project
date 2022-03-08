@@ -18,7 +18,7 @@ cell
 
 <https://github.com/burghoff/Scientific-Inkscape>
 
-time mangement
+time management
 <https://liquidti.me/plans>
 
 <https://datasetsearch.research.google.com/>

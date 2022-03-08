@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 3 Cross-references | A Minimal Book Example</title>
+  <title>Section 6 OVH Cloud VPS setup | A Minimal Book Example</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 3 Cross-references | A Minimal Book Example" />
+  <meta property="og:title" content="Section 6 OVH Cloud VPS setup | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -20,7 +20,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 3 Cross-references | A Minimal Book Example" />
+  <meta name="twitter:title" content="Section 6 OVH Cloud VPS setup | A Minimal Book Example" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -37,8 +37,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="standard-operating-procedures.html"/>
-<link rel="next" href="parts.html"/>
+<link rel="prev" href="jounarl-requirements.html"/>
+<link rel="next" href="bookdown-tutorial-create-this-page.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -204,92 +204,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cross" class="section level1">
-<h1><span class="header-section-number">Section 3</span> Cross-references</h1>
-<p>Cross-references make it easier for your readers to find and link to elements in your book.</p>
-<div id="chapters-and-sub-chapters" class="section level2">
-<h2><span class="header-section-number">3.1</span> Chapters and sub-chapters</h2>
-<p>There are two steps to cross-reference any heading:</p>
-<ol style="list-style-type: decimal">
-<li>Label the heading: <code># Hello world {#nice-label}</code>.
-<ul>
-<li>Leave the label off if you like the automated heading generated based on your heading title: for example, <code># Hello world</code> = <code># Hello world {#hello-world}</code>.</li>
-<li>To label an un-numbered heading, use: <code># Hello world {-#nice-label}</code> or <code>{# Hello world .unnumbered}</code>.</li>
-</ul></li>
-<li>Next, reference the labeled heading anywhere in the text using <code>\@ref(nice-label)</code>; for example, please see Chapter <a href="cross.html#cross">3</a>.
-<ul>
-<li>If you prefer text as the link instead of a numbered reference use: <a href="cross.html#cross">any text you want can go here</a>.</li>
-</ul></li>
-</ol>
+<div id="ovh-cloud-vps-setup" class="section level1">
+<h1><span class="header-section-number">Section 6</span> OVH Cloud VPS setup</h1>
+<p>The setup tutorial could be devided into five parts:
+- OVHcloud Control Panel setup (reinstall OS)
+- WHM &amp; cPanel setup
+- Secure your server
+- Setup your domain
+- Install dependencies &amp; other settings
+## OVHcloud Control Panel setup
+### Reinstall OS
+If you already have a VPS and want to have cPanel on it, you can reinstall the VPS from your OVHcloud Control Panel with the <strong>“CentOS 7 - cPanel”</strong> template (available only with a compatible VPS solution). After that, you will receive an email shortly with the username &amp; password + cPanel login details.</p>
+<div id="setup-fireware" class="section level3">
+<h3><span class="header-section-number">6.0.1</span> Setup fireware</h3>
+<p>In order to increase the VPS’s security, we can go to IP
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210172232.png" alt="userprofile" />
+Set firewall here
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210172556.png" alt="firewall" /></p>
 </div>
-<div id="captioned-figures-and-tables" class="section level2">
-<h2><span class="header-section-number">3.2</span> Captioned figures and tables</h2>
-<p>Figures and tables <em>with captions</em> can also be cross-referenced from elsewhere in your book using <code>\@ref(fig:chunk-label)</code> and <code>\@ref(tab:chunk-label)</code>, respectively.</p>
-<p>See Figure <a href="cross.html#fig:nice-fig">3.1</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="cross.html#cb3-1"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))</span>
-<span id="cb3-2"><a href="cross.html#cb3-2"></a><span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig"></span>
-<img src="_main_files/figure-html/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
-<p class="caption">
-Figure 3.1: Here is a nice figure!
-</p>
+<div id="whm-cpanel-setup" class="section level2">
+<h2><span class="header-section-number">6.1</span> WHM &amp; cPanel setup</h2>
+<p>This tutorial is adapted from <a href="https://docs.ovh.com/gb/en/vps/cpanel/">ovh cloud guide</a>.</p>
+<p>cPanel has been widely used for domain and web application management. We are using this as well. Unfortunately (or fortunately), it is not possible to setup using command line. There are two steps we need to set manually: whm setting, cpanel account creation.</p>
+<div id="whm-manager" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> WHM manager</h3>
+<div id="how-to-set-up---link-generation" class="section level4">
+<h4><span class="header-section-number">6.1.1.1</span> How to set up - link generation</h4>
+<p>Once you received the email with the unique link, please proceed to the link to do the initial setup.</p>
+<p>The URL above allows you to log in without credentials (user and password) to your WHM manager.</p>
+<p>However, the link sometimes expires soon. Alternatively, you can generate a new link by running <code>sudo whmlogin</code> (when you ssh in).</p>
 </div>
-<p>Don’t miss Table <a href="cross.html#tab:nice-tab">3.1</a>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="cross.html#cb4-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
-<span id="cb4-2"><a href="cross.html#cb4-2"></a>  <span class="kw">head</span>(pressure, <span class="dv">10</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb4-3"><a href="cross.html#cb4-3"></a>  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></span>
-<span id="cb4-4"><a href="cross.html#cb4-4"></a>)</span></code></pre></div>
-<table>
-<caption><span id="tab:nice-tab">Table 3.1: </span>Here is a nice table!</caption>
-<thead>
-<tr class="header">
-<th align="right">temperature</th>
-<th align="right">pressure</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">0.0002</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="right">0.0012</td>
-</tr>
-<tr class="odd">
-<td align="right">40</td>
-<td align="right">0.0060</td>
-</tr>
-<tr class="even">
-<td align="right">60</td>
-<td align="right">0.0300</td>
-</tr>
-<tr class="odd">
-<td align="right">80</td>
-<td align="right">0.0900</td>
-</tr>
-<tr class="even">
-<td align="right">100</td>
-<td align="right">0.2700</td>
-</tr>
-<tr class="odd">
-<td align="right">120</td>
-<td align="right">0.7500</td>
-</tr>
-<tr class="even">
-<td align="right">140</td>
-<td align="right">1.8500</td>
-</tr>
-<tr class="odd">
-<td align="right">160</td>
-<td align="right">4.2000</td>
-</tr>
-<tr class="even">
-<td align="right">180</td>
-<td align="right">8.8000</td>
-</tr>
-</tbody>
-</table>
+<div id="whm-agreement-namespace-setting" class="section level4">
+<h4><span class="header-section-number">6.1.1.2</span> WHM agreement &amp; namespace setting</h4>
+<p>Given the link, you will be able to access</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210173642.png" alt="" />
+<p class="caption">WHM agreement</p>
+</div>
+<p>Namespace setting (config your domain)</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210175101.png" alt="" />
+<p class="caption">Namespace-vps-name.vps.ovh.net</p>
+</div>
+</div>
+<div id="set-root-password" class="section level4">
+<h4><span class="header-section-number">6.1.1.3</span> set root password</h4>
+<p>Once you login into WHM, you will be able to setup a root password for future access.</p>
+<p><img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210174451.png" alt="set-password" />
+Then you will be able to login with the username (root) &amp; password. In the future, you will be able to access WHM here:
+<a href="https://vps-name.vps.ovh.net:2087" class="uri">https://vps-name.vps.ovh.net:2087</a></p>
+</div>
+<div id="create-a-cpanel-account" class="section level4">
+<h4><span class="header-section-number">6.1.1.4</span> create a cPanel account</h4>
+<p><img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210174119.png" alt="create a new account" />
+You will be able to create new accounts here by filling all the details.
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210174303.png" /></p>
+<p>Setup an account, details is in webserver channel
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220211102458.png" />
+Read more here <a href="https://docs.ovh.com/gb/en/vps/cpanel/" class="uri">https://docs.ovh.com/gb/en/vps/cpanel/</a>.</p>
+</div>
+</div>
+</div>
+<div id="secure-vps" class="section level2">
+<h2><span class="header-section-number">6.2</span> Secure VPS</h2>
+<p>Change SSH port is highly recommended. We can change the <code>/etc/ssh/sshd_config</code> file</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="ovh-cloud-vps-setup.html#cb5-1"></a> <span class="ex">vi</span> /etc/ssh/sshd_config </span></code></pre></div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220210175712.png" alt="" />
+<p class="caption">port 22</p>
+</div>
+<p>We can change the Port 22 to whatever port you want (eg. 33), then restart the sshd</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="ovh-cloud-vps-setup.html#cb6-1"></a></span>
+<span id="cb6-2"><a href="ovh-cloud-vps-setup.html#cb6-2"></a><span class="fu">sudo</span> systemctl restart sshd</span></code></pre></div>
+<p>Now you will only be able to ssh using (eg. 33)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="ovh-cloud-vps-setup.html#cb7-1"></a><span class="fu">ssh</span> username@ip.add.r.ess -p 33</span></code></pre></div>
+<p>Read more here <a href="https://docs.cpanel.net/knowledge-base/security/tips-to-make-your-server-more-secure/" class="uri">https://docs.cpanel.net/knowledge-base/security/tips-to-make-your-server-more-secure/</a>.</p>
+</div>
+<div id="setup-your-domain" class="section level2">
+<h2><span class="header-section-number">6.3</span> Setup your domain</h2>
+<p>Go to the domain provider website and change the domain to</p>
+<p><img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220211102642.png" /></p>
+<pre><code>vps-id.vps.ovh.net
+cdns.ovh.net</code></pre>
+</div>
+<div id="install-dependencies-other-settings" class="section level2">
+<h2><span class="header-section-number">6.4</span> Install dependencies &amp; other settings</h2>
+<p>All you need is this git repo: <a href="https://github.com/ss-lab-cancerunit/ovhcloud" class="uri">https://github.com/ss-lab-cancerunit/ovhcloud</a></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="ovh-cloud-vps-setup.html#cb9-1"></a><span class="fu">git</span> clone https://github.com/ss-lab-cancerunit/ovhcloud.git</span>
+<span id="cb9-2"><a href="ovh-cloud-vps-setup.html#cb9-2"></a><span class="bu">cd</span> ovhcloud</span>
+<span id="cb9-3"><a href="ovh-cloud-vps-setup.html#cb9-3"></a><span class="fu">bash</span> setup.sh</span></code></pre></div>
 
 </div>
 </div>
@@ -298,8 +301,8 @@ Figure 3.1: Here is a nice figure!
           </div>
         </div>
       </div>
-<a href="standard-operating-procedures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="jounarl-requirements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bookdown-tutorial-create-this-page.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -330,7 +333,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-cross-refs.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-ovh-setup.Rmd",
 "text": "Edit"
 },
 "history": {
