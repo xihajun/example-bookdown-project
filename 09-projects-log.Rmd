@@ -1,0 +1,20 @@
+# Project log
+
+
+## Tool usage
+In order to use a tool, we have to learn the input and the output format.
+
+
+### Comparision
+
+
+### COBRA
+
+### BETA
+`BETA basic` and `BETA minus`
+
+<http://cistrome.org/BETA/tutorial.html>
+
+### RainCloud Plot
+
+<https://towardsdatascience.com/making-it-rain-with-raincloud-plots-496c39a2756f>

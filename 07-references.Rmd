@@ -1,3 +1,24 @@
 `r if (knitr::is_html_output()) '
 # References {-}
 '`
+
+SVG <https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL>
+
+<https://stackoverflow.com/questions/14494747/how-to-add-images-to-readme-md-on-github>
+Gallery_post
+<https://tahsintariq.github.io/Gallery_post>
+<https://sarpex.com/travels/photos/Antola/>
+
+
+
+figures
+<https://www.youtube.com/watch?v=tGwA-j1wikk>
+cell
+<https://a9.io/gramstract/>
+
+<https://github.com/burghoff/Scientific-Inkscape>
+
+time mangement
+<https://liquidti.me/plans>
+
+<https://datasetsearch.research.google.com/>
