@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 7 Jounarl requirements | A Minimal Book Example</title>
+  <title>Section 12 Presentation | A Minimal Book Example</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 7 Jounarl requirements | A Minimal Book Example" />
+  <meta property="og:title" content="Section 12 Presentation | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -20,7 +20,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 7 Jounarl requirements | A Minimal Book Example" />
+  <meta name="twitter:title" content="Section 12 Presentation | A Minimal Book Example" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -37,8 +37,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="parts.html"/>
-<link rel="next" href="ovh-cloud-vps-setup.html"/>
+<link rel="prev" href="project-log.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,12 +228,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="jounarl-requirements" class="section level1 hasAnchor">
-<h1><span class="header-section-number">Section 7</span> Jounarl requirements<a href="jounarl-requirements.html#jounarl-requirements" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="nature-communication" class="section level2 hasAnchor">
-<h2><span class="header-section-number">7.1</span> Nature Communication<a href="jounarl-requirements.html#nature-communication" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://www.nature.com/commsbio/submit/submission-guidelines#format-manuscripts" class="uri">https://www.nature.com/commsbio/submit/submission-guidelines#format-manuscripts</a></p>
+<div id="presentation-1" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Section 12</span> Presentation<a href="presentation-1.html#presentation-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="google-slides-1" class="section level2 hasAnchor">
+<h2><span class="header-section-number">12.1</span> Google Slides<a href="presentation-1.html#google-slides-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://slides.new">Google slides</a> is easy to store your powerpoint, although sometimes it’s not that smooth. Here are some useful functions for Google slides to improve your slides.</p>
+<div id="progress-bar-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">12.1.1</span> Progress Bar<a href="presentation-1.html#progress-bar-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes, auditors need to know where you at during your presentation. It would be great to generate this progress bar. This page is stolen from <a href="https://developers.google.com/apps-script/add-ons/editors/slides/quickstart/progress-bar">Google Apps Script</a>.</p>
+<div id="create-scripts" class="section level4 hasAnchor">
+<h4><span class="header-section-number">12.1.1.1</span> Create scripts<a href="presentation-1.html#create-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Under tools -&gt; create scripts</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220308095216.png" alt="" />
+<p class="caption">create</p>
+</div>
+<p>You will be able to create</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="presentation-1.html#cb11-1"></a><span class="ex">/**</span></span>
+<span id="cb11-2"><a href="presentation-1.html#cb11-2"></a> <span class="ex">*</span> @OnlyCurrentDoc Adds progress bars to a presentation.</span>
+<span id="cb11-3"><a href="presentation-1.html#cb11-3"></a> <span class="ex">*/</span></span>
+<span id="cb11-4"><a href="presentation-1.html#cb11-4"></a><span class="ex">const</span> BAR_ID = <span class="st">&#39;PROGRESS_BAR_ID&#39;</span><span class="kw">;</span></span>
+<span id="cb11-5"><a href="presentation-1.html#cb11-5"></a><span class="ex">const</span> BAR_HEIGHT = 10<span class="kw">;</span> <span class="ex">//</span> px</span>
+<span id="cb11-6"><a href="presentation-1.html#cb11-6"></a></span>
+<span id="cb11-7"><a href="presentation-1.html#cb11-7"></a><span class="ex">/**</span></span>
+<span id="cb11-8"><a href="presentation-1.html#cb11-8"></a> <span class="ex">*</span> Runs when the add-on is installed.</span>
+<span id="cb11-9"><a href="presentation-1.html#cb11-9"></a> <span class="ex">*</span> @param <span class="dt">{object}</span> e The event parameter for a simple onInstall trigger. To</span>
+<span id="cb11-10"><a href="presentation-1.html#cb11-10"></a> <span class="ex">*</span>     determine which authorization mode (ScriptApp.AuthMode) <span class="ex">the</span> trigger is</span>
+<span id="cb11-11"><a href="presentation-1.html#cb11-11"></a> <span class="ex">*</span>     running in, inspect e.authMode. (In practice, onInstall triggers always</span>
+<span id="cb11-12"><a href="presentation-1.html#cb11-12"></a> <span class="ex">*</span>     run in AuthMode.FULL, but onOpen triggers may be AuthMode.LIMITED or</span>
+<span id="cb11-13"><a href="presentation-1.html#cb11-13"></a> <span class="ex">*</span>     AuthMode.NONE.)</span>
+<span id="cb11-14"><a href="presentation-1.html#cb11-14"></a> <span class="ex">*/</span></span>
+<span id="cb11-15"><a href="presentation-1.html#cb11-15"></a><span class="kw">function</span><span class="fu"> onInstall</span><span class="kw">(</span><span class="ex">e</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb11-16"><a href="presentation-1.html#cb11-16"></a>  <span class="fu">onOpen()</span>;</span>
+<span id="cb11-17"><a href="presentation-1.html#cb11-17"></a><span class="kw">}</span></span>
+<span id="cb11-18"><a href="presentation-1.html#cb11-18"></a></span>
+<span id="cb11-19"><a href="presentation-1.html#cb11-19"></a><span class="ex">/**</span></span>
+<span id="cb11-20"><a href="presentation-1.html#cb11-20"></a> <span class="ex">*</span> Trigger for opening a presentation.</span>
+<span id="cb11-21"><a href="presentation-1.html#cb11-21"></a> <span class="ex">*</span> @param <span class="dt">{object}</span> e The onOpen event.</span>
+<span id="cb11-22"><a href="presentation-1.html#cb11-22"></a> <span class="ex">*/</span></span>
+<span id="cb11-23"><a href="presentation-1.html#cb11-23"></a><span class="kw">function</span><span class="fu"> onOpen</span><span class="kw">(</span><span class="ex">e</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb11-24"><a href="presentation-1.html#cb11-24"></a>  <span class="ex">SlidesApp.getUi</span>()<span class="ex">.createAddonMenu</span>()</span>
+<span id="cb11-25"><a href="presentation-1.html#cb11-25"></a>      <span class="ex">.addItem</span>(<span class="st">&#39;Show progress bar&#39;</span>, <span class="st">&#39;createBars&#39;</span>)</span>
+<span id="cb11-26"><a href="presentation-1.html#cb11-26"></a>      <span class="ex">.addItem</span>(<span class="st">&#39;Hide progress bar&#39;</span>, <span class="st">&#39;deleteBars&#39;</span>)</span>
+<span id="cb11-27"><a href="presentation-1.html#cb11-27"></a>      <span class="ex">.addToUi</span>();</span>
+<span id="cb11-28"><a href="presentation-1.html#cb11-28"></a><span class="kw">}</span></span>
+<span id="cb11-29"><a href="presentation-1.html#cb11-29"></a></span>
+<span id="cb11-30"><a href="presentation-1.html#cb11-30"></a><span class="ex">/**</span></span>
+<span id="cb11-31"><a href="presentation-1.html#cb11-31"></a> <span class="ex">*</span> Create a rectangle on every slide with different bar widths.</span>
+<span id="cb11-32"><a href="presentation-1.html#cb11-32"></a> <span class="ex">*/</span></span>
+<span id="cb11-33"><a href="presentation-1.html#cb11-33"></a><span class="kw">function</span><span class="fu"> createBars()</span> <span class="kw">{</span></span>
+<span id="cb11-34"><a href="presentation-1.html#cb11-34"></a>  <span class="fu">deleteBars()</span>; <span class="ex">//</span> Delete any existing progress bars</span>
+<span id="cb11-35"><a href="presentation-1.html#cb11-35"></a>  <span class="ex">const</span> presentation = SlidesApp.getActivePresentation();</span>
+<span id="cb11-36"><a href="presentation-1.html#cb11-36"></a>  <span class="ex">const</span> slides = presentation.getSlides();</span>
+<span id="cb11-37"><a href="presentation-1.html#cb11-37"></a>  <span class="kw">for</span> <span class="kw">(</span><span class="bu">let</span> i = 0<span class="kw">;</span> <span class="ex">i</span> <span class="op">&lt;</span> slides.length<span class="kw">;</span> <span class="ex">++i</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb11-38"><a href="presentation-1.html#cb11-38"></a>    <span class="ex">const</span> ratioComplete = (i / (slides.length - 1));</span>
+<span id="cb11-39"><a href="presentation-1.html#cb11-39"></a>    <span class="ex">const</span> x = 0<span class="kw">;</span></span>
+<span id="cb11-40"><a href="presentation-1.html#cb11-40"></a>    <span class="ex">const</span> y = presentation.getPageHeight() <span class="ex">-</span> BAR_HEIGHT<span class="kw">;</span></span>
+<span id="cb11-41"><a href="presentation-1.html#cb11-41"></a>    <span class="ex">const</span> barWidth = presentation.getPageWidth() <span class="ex">*</span> ratioComplete<span class="kw">;</span></span>
+<span id="cb11-42"><a href="presentation-1.html#cb11-42"></a>    <span class="kw">if</span> <span class="kw">(</span><span class="ex">barWidth</span> <span class="op">&gt;</span> 0<span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb11-43"><a href="presentation-1.html#cb11-43"></a>      <span class="ex">const</span> bar = slides[i].insertShape(SlidesApp.ShapeType.RECTANGLE, x, y,</span>
+<span id="cb11-44"><a href="presentation-1.html#cb11-44"></a>          <span class="ex">barWidth</span>, BAR_HEIGHT);</span>
+<span id="cb11-45"><a href="presentation-1.html#cb11-45"></a>      <span class="ex">bar.getFill</span>()<span class="ex">.setSolidFill</span>(<span class="st">&#39;#0D0C27&#39;</span>);</span>
+<span id="cb11-46"><a href="presentation-1.html#cb11-46"></a>      <span class="ex">bar.getBorder</span>()<span class="ex">.setTransparent</span>();</span>
+<span id="cb11-47"><a href="presentation-1.html#cb11-47"></a>      <span class="ex">bar.setLinkUrl</span>(BAR_ID);</span>
+<span id="cb11-48"><a href="presentation-1.html#cb11-48"></a>    <span class="kw">}</span></span>
+<span id="cb11-49"><a href="presentation-1.html#cb11-49"></a>  <span class="kw">}</span></span>
+<span id="cb11-50"><a href="presentation-1.html#cb11-50"></a><span class="kw">}</span></span>
+<span id="cb11-51"><a href="presentation-1.html#cb11-51"></a></span>
+<span id="cb11-52"><a href="presentation-1.html#cb11-52"></a><span class="ex">/**</span></span>
+<span id="cb11-53"><a href="presentation-1.html#cb11-53"></a> <span class="ex">*</span> Deletes all progress bar rectangles.</span>
+<span id="cb11-54"><a href="presentation-1.html#cb11-54"></a> <span class="ex">*/</span></span>
+<span id="cb11-55"><a href="presentation-1.html#cb11-55"></a><span class="kw">function</span><span class="fu"> deleteBars()</span> <span class="kw">{</span></span>
+<span id="cb11-56"><a href="presentation-1.html#cb11-56"></a>  <span class="ex">const</span> presentation = SlidesApp.getActivePresentation();</span>
+<span id="cb11-57"><a href="presentation-1.html#cb11-57"></a>  <span class="ex">const</span> slides = presentation.getSlides();</span>
+<span id="cb11-58"><a href="presentation-1.html#cb11-58"></a>  <span class="kw">for</span> <span class="kw">(</span><span class="bu">let</span> i = 0<span class="kw">;</span> <span class="ex">i</span> <span class="op">&lt;</span> slides.length<span class="kw">;</span> <span class="ex">++i</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb11-59"><a href="presentation-1.html#cb11-59"></a>    <span class="ex">const</span> elements = slides[i].getPageElements();</span>
+<span id="cb11-60"><a href="presentation-1.html#cb11-60"></a>    <span class="kw">for</span> <span class="kw">(</span><span class="ex">const</span> el of elements<span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb11-61"><a href="presentation-1.html#cb11-61"></a>      <span class="kw">if</span> <span class="kw">(</span><span class="ex">el.getPageElementType</span>(<span class="kw">)</span> === <span class="ex">SlidesApp.PageElementType.SHAPE</span> <span class="kw">&amp;&amp;</span></span>
+<span id="cb11-62"><a href="presentation-1.html#cb11-62"></a>        <span class="ex">el.asShape</span>()<span class="ex">.getLink</span>() <span class="kw">&amp;&amp;</span></span>
+<span id="cb11-63"><a href="presentation-1.html#cb11-63"></a>        <span class="ex">el.asShape</span>()<span class="ex">.getLink</span>()<span class="ex">.getUrl</span>() === <span class="ex">BAR_ID</span>) <span class="kw">{</span></span>
+<span id="cb11-64"><a href="presentation-1.html#cb11-64"></a>        <span class="ex">el.remove</span>();</span>
+<span id="cb11-65"><a href="presentation-1.html#cb11-65"></a>      <span class="kw">}</span></span>
+<span id="cb11-66"><a href="presentation-1.html#cb11-66"></a>    <span class="kw">}</span></span>
+<span id="cb11-67"><a href="presentation-1.html#cb11-67"></a>  <span class="kw">}</span></span>
+<span id="cb11-68"><a href="presentation-1.html#cb11-68"></a><span class="kw">}</span></span></code></pre></div>
+<p>Save them and <code>run</code> it.
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220308095344.png" alt="saveandrun" /></p>
+<p>The progress bar could be found here
+<img src="https://raw.githubusercontent.com/xihajun/image/main/img/20220308095446.png" alt="progressbar" /></p>
 
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -241,8 +326,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="parts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ovh-cloud-vps-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="project-log.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -273,7 +358,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-journal.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/10-presentation-skills.Rmd",
 "text": "Edit"
 },
 "history": {
