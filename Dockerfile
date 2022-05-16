@@ -1,4 +1,4 @@
-FROM conoria/alpine-r-bookdown
+FROM drmike/r-bookdown
 
 COPY . .
 
