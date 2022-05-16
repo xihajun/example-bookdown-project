@@ -4,7 +4,7 @@ tutorial
 usage
 render-book
 preview-book
-standard-operating-procedures
+test-for-new-template
 a-section
 cross
 chapters-and-sub-chapters
